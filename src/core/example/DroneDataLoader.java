@@ -1,7 +1,11 @@
+package core.example;
+
 import core.ItemCreator;
 import core.SingleLineConsumer;
 import core.ParseUtil;
 import core.Parser;
+import core.example.model.Order;
+import core.example.model.Warehouse;
 
 import java.awt.*;
 import java.util.ArrayList;

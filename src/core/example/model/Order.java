@@ -1,3 +1,5 @@
+package core.example.model;
+
 import java.awt.*;
 import java.util.HashMap;
 

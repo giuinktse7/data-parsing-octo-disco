@@ -8,7 +8,7 @@ public class SingleLineConsumer extends LineConsumer {
     public SingleLineConsumer(Consumer<String[]> consumer) {
         super(consumer);
     }
-    
+
 
     @Override
     void accept(String[] data) {

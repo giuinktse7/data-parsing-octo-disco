@@ -10,10 +10,6 @@ public abstract class LineConsumer {
         this.consumer = consumer;
     }
 
-    public static SingleLineConsumer create(Consumer<String[]> consumer) {
-        return new SingleLineConsumer(consumer);
-    }
-
     void accept(String[] data) {
         consumer.accept(data);
     }
