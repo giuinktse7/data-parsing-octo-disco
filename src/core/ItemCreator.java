@@ -1,7 +1,7 @@
 package core;
 
 public abstract class ItemCreator<E> extends LineConsumer {
-    public static final int AMOUNT_NOT_SPECIFIED = -1;
+    private static final int AMOUNT_NOT_SPECIFIED = -1;
 
     private E currentItem;
     protected int remainingAmount = AMOUNT_NOT_SPECIFIED;
@@ -27,21 +27,17 @@ public abstract class ItemCreator<E> extends LineConsumer {
 
     public abstract void parseData(String[] data);
 
-    public boolean hasItem() {
+    protected boolean hasItem() {
         return currentItem != null;
     }
 
-    public E getCurrentItem() {
+    protected E getCurrentItem() {
         return currentItem;
     }
 
-    public void setCurrentItem(E newItem) {
+    protected void setCurrentItem(E newItem) {
         if (newItem != null) --remainingAmount;
 
         this.currentItem = newItem;
-    }
-
-    public void setRemainingAmount(int amount) {
-        this.remainingAmount = amount;
     }
 }

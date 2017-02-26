@@ -1,5 +1,5 @@
 import core.ItemCreator;
-import core.LineConsumer;
+import core.SingleLineConsumer;
 import core.ParseUtil;
 import core.Parser;
 
@@ -19,8 +19,7 @@ public class DroneDataLoader {
     public ArrayList<Warehouse> warehouses = new ArrayList<>();
 
     public DroneDataLoader(String path) {
-        LineConsumer getMetaData = LineConsumer
-                .create(data -> {
+        SingleLineConsumer getMetaData = new SingleLineConsumer(data -> {
                     rowCount = getInt(data, 0);
                     columnCount = getInt(data, 1);
                     droneCount = getInt(data, 2);
@@ -28,11 +27,11 @@ public class DroneDataLoader {
                     maxPayload = getInt(data, 4);
                 });
 
-        LineConsumer getProductTypes = new LineConsumer(data -> productTypeCount = getInt(data, 0));
-        LineConsumer getProductWeights = new LineConsumer(data -> productWeights.putAll(asIndexedMap(data)));
-        LineConsumer getWarehouseCount = new LineConsumer(data -> warehouseCount = getInt(data, 0));
+        SingleLineConsumer getProductTypes = new SingleLineConsumer(data -> productTypeCount = getInt(data, 0));
+        SingleLineConsumer getProductWeights = new SingleLineConsumer(data -> productWeights.putAll(asIndexedMap(data)));
+        SingleLineConsumer getWarehouseCount = new SingleLineConsumer(data -> warehouseCount = getInt(data, 0));
         WarehouseCreator getWarehouses = new WarehouseCreator();
-        LineConsumer getOrderCount = new LineConsumer(data -> orderCount = getInt(data, 0));
+        SingleLineConsumer getOrderCount = new SingleLineConsumer(data -> orderCount = getInt(data, 0));
 
         OrderCreator getOrders = new OrderCreator();
 
