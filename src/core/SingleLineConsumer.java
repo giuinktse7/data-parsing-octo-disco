@@ -8,10 +8,7 @@ public class SingleLineConsumer extends LineConsumer {
     public SingleLineConsumer(Consumer<String[]> consumer) {
         super(consumer);
     }
-
-    public static SingleLineConsumer create(Consumer<String[]> consumer) {
-        return new SingleLineConsumer(consumer);
-    }
+    
 
     @Override
     void accept(String[] data) {
