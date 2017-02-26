@@ -1,4 +1,4 @@
-package core.example.model;
+package example.model;
 
 import java.awt.*;
 import java.util.HashMap;

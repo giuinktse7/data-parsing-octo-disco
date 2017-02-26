@@ -1,4 +1,4 @@
-package core.example;
+package example;
 
 public class Main {
 
